@@ -1,0 +1,16 @@
+{
+  "id": "rotss-weather-tracker",
+  "title": "Raiders of the Serpant Sea - Weather Tracker",
+  "version": "1.0.0",
+  "esmodules": [
+    "raiders-of-the-serpant-sea-weather-tracker.js"
+  ],
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "url": "https://github.com/Jmwhite45/rotss-weather-tracker",
+  "download": "https://github.com/Jmwhite45/rotss-weather-tracker/archive/refs/tags/Prototype.zip",
+  "manifest": "https://github.com/Jmwhite45/rotss-weather-tracker/releases/latest/download/module.json",
+  "bugs":"https://github.com/Jmwhite45/rotss-weather-tracker/issues"
+}

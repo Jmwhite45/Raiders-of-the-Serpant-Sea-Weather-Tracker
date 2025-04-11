@@ -144,8 +144,6 @@ export class weatherTracker extends Application {
   }
 
   async _render(force = true, options = {focus: true, height: 842}) {
-    console.log(constants.DEBUG, "This is a test")
-    console.log(constants.DEBUG, this)
     await super._render(force, options);
   }
 }

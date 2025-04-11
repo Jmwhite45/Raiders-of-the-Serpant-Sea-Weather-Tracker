@@ -1,9 +1,9 @@
 {
   "id": "rotss-weather-tracker",
-  "title": "Raiders of the Serpant Sea - Weather Tracker",
-  "version": "1.0.0",
+  "title": "Raiders of the Serpent Sea - Weather Tracker",
+  "version": "1.0.1",
   "esmodules": [
-    "raiders-of-the-serpant-sea-weather-tracker.js"
+    "raiders-of-the-serpent-sea-weather-tracker.js"
   ],
   "compatibility": {
     "minimum": "12",

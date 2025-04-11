@@ -12,5 +12,32 @@
   "url": "https://github.com/Jmwhite45/rotss-weather-tracker",
   "download": "https://github.com/Jmwhite45/rotss-weather-tracker/archive/refs/tags/Prototype.zip",
   "manifest": "https://github.com/Jmwhite45/rotss-weather-tracker/releases/latest/download/module.json",
-  "bugs":"https://github.com/Jmwhite45/rotss-weather-tracker/issues"
+  "bugs": "https://github.com/Jmwhite45/rotss-weather-tracker/issues",
+  "relationships": {
+    "recommends": [
+      {
+        "id": "advanced-macros",
+        "type": "module",
+        "compatibility": {}
+      },
+      {
+        "id": "socketlib",
+        "type": "module",
+        "compatibility": {}
+      }
+    ]
+  },
+  "packs": [
+    {
+      "name": "rotss-weather-macros",
+      "label": "RotSS Weather Macros",
+      "path": "packs/rotss-weather-macros",
+      "type": "Macro",
+      "system": "dnd5e",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ]
 }

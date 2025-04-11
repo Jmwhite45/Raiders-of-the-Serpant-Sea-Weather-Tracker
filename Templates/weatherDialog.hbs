@@ -1,6 +1,19 @@
-<div style="height: 740px; width: 313px">
+<div style="height: 740px; width: 313px" class="WeatherTracker">
     <img src='modules/rotss-weather-tracker/img/Tracker.png'>
     <img src='modules/rotss-weather-tracker/img/Dot.png' style='border:0px; position: absolute; z-index: 5; left: 29px; top: {{temp}}px'>
     <img src='modules/rotss-weather-tracker/img/Dot.png' style='border:0px; position: absolute; z-index: 5; left: 134px; top: {{wind}}px'>
     <img src='modules/rotss-weather-tracker/img/Dot.png' style='border:0px; position: absolute; z-index: 5; left: 239px; top: {{snow}}px'>
+</div>
+<div class="dialog-buttons">
+    <button class="dialog-button closeWeather" data-button="close">
+        <i class="fas fa-x"></i>
+        Close
+    </button>
+    
+    {{#if isGM}}
+    <button class="dialog-button ModifyWeather" data-button="Modify">
+        <i class="fas fa-cloud"></i>
+        Modify weather
+    </button>
+    {{/if}}
 </div>

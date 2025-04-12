@@ -9,6 +9,71 @@ export function getPos() {
   ];
 }
 
+export let handsOfChange = {
+  increaseTemp: ()=>changeTemp(1),
+  reduceTemp: ()=>changeTemp(-1),
+  increaseWind: ()=>changeWind(1),
+  reduceWind: ()=>changeWind(-1),
+  increaseRain: ()=>changeSnow(1,false),
+  reduceRain: ()=>changeSnow(-1,false),
+  increaseSnow: ()=>changeSnow(1, true),
+  reduceSnow: ()=>changeSnow(-1, true),
+}
+
+function getMidDir(loc){
+  if(loc> constants.MID){return -1}
+  else if (loc<constants.MID){return 1}
+  else {return 0}
+}
+
+function changeTemp(val){
+  let Pos = getPos()
+  Pos[0] += val
+  updatePos(...Pos)
+}
+
+function changeWind(val){
+  let Pos = getPos()
+
+  //if POS is below the midpoint reverse the sign
+  if(Pos[1]<constants.MID){
+    val = val*-1
+  }
+  // if there is no wind
+  else if(Pos[1]==constants.MID){
+    // and if you are trying to reduce the wind, Dont
+    if(val<=0){val = 0}
+    // but if your trying to increase the wind, choose a random direction
+    else {val = RandomChoice([-1,1])}
+  }
+
+  Pos[1] += val; 
+  updatePos(...Pos)
+}
+
+function changeSnow(val,isSnow){
+  let Pos = getPos()
+
+  //if POS is below the midpoint reverse the sign
+  if(Pos[2]<constants.MID){
+    val = val*-1
+  }
+  // if there is no percipitation
+  else if(Pos[2]==constants.MID){
+    // and if you are trying to reduce the percipitation, Dont
+    if(val<=0){val = 0}
+    // but if your trying to increase the perciptiation, increase based on if you want to do snow or rain
+    else {
+      if(isSnow){
+        val=val*-1
+      }
+    }
+  }
+
+  Pos[2] += val; 
+  updatePos(...Pos)
+}
+
 //updates Pos
 export async function updatePos(temp, wind, snow) {
   await game.settings.set(
@@ -26,6 +91,8 @@ export async function updatePos(temp, wind, snow) {
     "posSnow",
     between(snow, constants.MAX)
   );
+
+  Hooks.call(`${constants.MODULEID}-ReRender`)
 }
 
 //Updates weather by the rolltables
@@ -85,14 +152,7 @@ export class weatherTracker extends Application {
       }
     }
 
-    await updatePos(...pos).then(async () => {
-        let data = await this.getData()
-        let newApp = await renderTemplate(`modules/${constants.MODULEID}/Templates/weatherDialog.hbs`, data)
-
-        $(document).find(".WeatherTracker").parent().html(newApp)
-        this.activateListeners($(document).find(".WeatherTracker").parent())
-
-    })
+    await updatePos(...pos)
 
     if (game.settings.get(constants.MODULEID, "sendWeatherReport")) {
       ChatMessage.create({
@@ -107,11 +167,20 @@ export class weatherTracker extends Application {
     }
   }
 
+  async reRender(){
+    let data = await this.getData()
+    let newApp = await renderTemplate(`modules/${constants.MODULEID}/Templates/weatherDialog.hbs`, data)
+
+    $(document).find(".WeatherTracker").parent().html(newApp)
+    this.activateListeners($(document).find(".WeatherTracker").parent())
+  }
+
   activateListeners(html) {
     super.activateListeners(html);
 
     html.find(".closeWeather").click(() => this.close());
     html.find(".ModifyWeather").click(() => this.updateByTable());
+
   }
 
   static get defaultOptions() {

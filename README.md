@@ -33,5 +33,8 @@ This function opens the weather tracker
 ### updatePos
 This function allows you to modify the weather via a macro. Only the GM can modify it. You can use Advanced-Macros to allow players to run a macro as the GM
 
+### handsOfChange
+this object contains 6 functions. One for increase and one for Decreasing each weather type for the Way of the Wanderer Monk
+
 ## Installation
 Manual: `https://github.com/Jmwhite45/Raiders-of-the-Serpant-Sea-Weather-Tracker/releases/download/v1.0.2/module.json`

@@ -11,6 +11,17 @@ export function settingsInit() {
     type: Boolean,
   });
 
+  //Ignoring this for now maybe later
+  game.settings.register(constants.MODULEID, "invertSnow", {
+    name: "Use Precipitation",
+    hint: "When using Precipitation, an increase of rain while its snowing will increase snow",
+    scope: "world",
+    config: false,
+    restricted: true,
+    default: true,
+    type: Boolean,
+  });
+
   game.settings.register(constants.MODULEID, "displayOnLoad", {
     name: "display on startup",
     hint: "Display the Weather tracker on start up",

@@ -1,5 +1,5 @@
 import { settingsInit } from "./Scripts/settings.js"
-import {getPos, updatePos, weatherTracker } from "./Scripts/application.js"
+import {getPos, handsOfChange, updatePos, weatherTracker } from "./Scripts/application.js"
 import { constants } from "./Scripts/constants.js"
 
 function getSceneControlButtons(controls){
@@ -19,12 +19,15 @@ Hooks.once("ready", function(){
   game.modules.get(constants.MODULEID).API ={
     openApp: () => app._render(),
     getPos: getPos,
-    updatePos: updatePos
+    updatePos: updatePos,
+    handsOfChange: handsOfChange
   }
 
   if(game.settings.get(constants.MODULEID, "displayOnLoad")){
     app._render()
   }
+
+  Hooks.on(`${constants.MODULEID}-ReRender`, ()=>{app.reRender()})
 });
 
 Hooks.on('getSceneControlButtons', getSceneControlButtons);

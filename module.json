@@ -1,7 +1,7 @@
 {
   "id": "rotss-weather-tracker",
   "title": "Raiders of the Serpent Sea - Weather Tracker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "esmodules": [
     "raiders-of-the-serpent-sea-weather-tracker.js"
   ],

@@ -15,9 +15,11 @@ Under game settings, DMs can also manually modify the weather, and if they want 
 Players will only be able to see the weather and not modify it.
 
 ![image](https://github.com/user-attachments/assets/50dc8e4d-88a4-4ab1-8c82-cf45348015a8)
+
 They will be allowed to choose if they see the weather tracker when they load into Foundry
 
 ![image](https://github.com/user-attachments/assets/430bf991-b6cc-4f38-8339-3d910c16281c)
+
 Both Players and GMs will be able to open the weather tracker on the sidebar
 
 ## Weather Tracker API
@@ -37,4 +39,4 @@ This function allows you to modify the weather via a macro. Only the GM can modi
 this object contains 6 functions. One for increase and one for Decreasing each weather type for the Way of the Wanderer Monk
 
 ## Installation
-Manual: `https://github.com/Jmwhite45/Raiders-of-the-Serpant-Sea-Weather-Tracker/releases/download/v1.0.2/module.json`
+Manual: `https://github.com/Jmwhite45/Raiders-of-the-Serpant-Sea-Weather-Tracker/releases/latest/download/module.json`
